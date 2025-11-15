@@ -1,0 +1,76 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.aquarium {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#1e90ff, #004a8f 60%, #002f5a);
+    position: relative;
+    overflow: hidden;
+}
+.light {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 15%, rgba(255,255,255,0.2), transparent 70%);
+    animation: lightMove 6s ease-in-out infinite alternate;
+    z-index: 2;
+}
+@keyframes lightMove {
+    0% {opacity: .25; transform: translateY(0);}
+    100% {opacity: .4; transform: translateY(20px);}
+}
+.water-move {
+    position: absolute;
+    width: 250%;
+    height: 250%;
+    background: radial-gradient(circle, rgba(255,255,255,0.07), transparent 80%);
+    animation: waterFlow 16s linear infinite;
+    opacity: .25;
+    z-index: 1;
+}
+@keyframes waterFlow {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+.coral {
+    position: absolute;
+    width: 100%;
+    height: 180px;
+    bottom: 50px;
+    background-image: url("sanho.png");
+    background-size: 300px;
+    background-repeat: repeat-x;
+    opacity: 0.85;
+    z-index: 3;
+}
+.sand {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    background: #d2b48c;
+    width: 100%;
+    z-index: 4;
+}
+#fish-container img {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
+    transition: transform 0.2s linear;
+}
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.75);
+    box-shadow: 0 0 10px rgba(255,255,255,1);
+    animation: bubbleUp linear infinite;
+    z-index: 6;
+}
+@keyframes bubbleUp {
+    0% {transform: translateY(0) scale(0.5); opacity: 0.6;}
+    100% {transform: translateY(-900px) scale(1.2); opacity: 0;}
+}
